@@ -41,9 +41,11 @@ def url_data(url_link, timeout=15):
 
 def pytest_addoption(parser):
     parser.addoption(
-        '--url', action='store', required=True, help='Set a url for app')
+        '--url', action='store', default='localhost', help='Set a url for app')
     parser.addoption(
-        '--browser-name', action='store', required=True, choices=['chrome', 'firefox'],
+        '--headless', action='store', default=True, help='Run tests in a headless mode by default')
+    parser.addoption(
+        '--browser-name', action='store', default="chrome", choices=['chrome', 'firefox'],
         help='Set a browser: chrome, firefox')
     parser.addoption(
         '--tester', action='store', required=True, help='Set the name of Tester who execute run')
@@ -66,6 +68,7 @@ def url(request):
 
 @pytest.fixture
 def browser(request, db_connection):
+    headless = request.config.getoption('--headless')
     browser_name = request.config.getoption('--browser-name')
     browser_version = request.config.getoption('--browser-version')
     executor = request.config.getoption('--executor')
@@ -85,11 +88,11 @@ def browser(request, db_connection):
     if local:
         if browser_name == 'chrome':
             options = ChOp()
-            options.headless = True
+            options.headless = headless
             driver = webdriver.Chrome(options=options, executable_path=ChromeDriverManager().install())
         elif browser_name == 'firefox':
             options = FFOp()
-            options.headless = True
+            options.headless = headless
             driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
         else:
             raise pytest.UsageError('To run locally --browser_name - chrome or firefox')
