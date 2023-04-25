@@ -8,7 +8,7 @@ class AdminPage(BasePage):
 
     @allure.step('Verify visibility of elements on the page')
     def check_elements_visibility(self):
-        """Verify visibility of elements."""
+        """Verify visibility of elements on the page."""
         lst = [AdminPageLocators.PANEL_HEADING,
                AdminPageLocators.USERNAME_INPUT,
                AdminPageLocators.PASSWORD_INPUT,

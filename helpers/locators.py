@@ -81,6 +81,30 @@ class ProductPageLocators:
     PRODUCT_PRICE = (By.XPATH, '//div[@class="col-sm-4"]/ul[@class="list-unstyled"][2]/li/h2')
 
 
+class RegisterPageLocators:
+    """Locators: Registration page."""
+
+    HEADER = (By.CSS_SELECTOR, 'div#content > h1')
+    TEXT_FOR_LOGIN = (By.CSS_SELECTOR, 'div#content > p')
+    FIRST_NAME_FIELD = (By.CSS_SELECTOR, 'input#input-firstname')
+    LAST_NAME_FIELD = (By.CSS_SELECTOR, 'input#input-lastname')
+    EMAIL_FIELD = (By.CSS_SELECTOR, 'input#input-email')
+    TEL_FIELD = (By.CSS_SELECTOR, 'input#input-telephone')
+    PASSW_FIELD = (By.CSS_SELECTOR, 'input#input-password')
+    CONFIRM_FIELD = (By.CSS_SELECTOR, 'input#input-confirm')
+    SUBSCRIBE_RADIO = (By.CSS_SELECTOR, '[name="newsletter"]')
+    PRIVACY_POLICY = (By.CSS_SELECTOR, '.buttons > .pull-right')
+    CONTINUE_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
+    RIGHT_MENU = (By.CSS_SELECTOR, 'div.list-group')
+    AGREE_CHECKBOX = (By.CSS_SELECTOR, '[name="agree"]')
+    FIRST_NAME_ERROR = (By.CSS_SELECTOR, '#input-firstname + .text-danger')
+    LAST_NAME_ERROR = (By.CSS_SELECTOR, '#input-lastname + .text-danger')
+    EMAIL_ERROR = (By.CSS_SELECTOR, '#input-email + .text-danger')
+    TEL_ERROR = (By.CSS_SELECTOR, '#input-telephone + .text-danger')
+    PASSWORD_ERROR = (By.CSS_SELECTOR, '#input-password + .text-danger')
+    CONFIRM_ERROR = (By.CSS_SELECTOR, '#input-confirm + .text-danger')
+
+
 class AdminPageLocators:
     """Locators: Admin page"""
 
@@ -94,6 +118,18 @@ class AdminPageLocators:
     LEFT_MENU_CATALOGUE = (By.CSS_SELECTOR, '#menu-catalog > a')
     LEFT_MENU_PRODUCTS = (By.CSS_SELECTOR, '#collapse1 > li:nth-child(2) > a')
     PRODUCTS_TABLE = (By.CSS_SELECTOR, '.table-responsive')
+
+
+class AccountPageLocators:
+    """Локаторы для страницы аккаунта пользователя."""
+
+    WISH_LIST_LINK = (By.XPATH, '//div[@id="content"]/ul[1]/li[4]/a')
+    ITEM_NAMES = (By.CSS_SELECTOR, '#content > div > table > tbody > tr >td.text-left > a')
+    LOGOUT_RIGHT_BLOCK = (By.XPATH, '//div[@class="list-group"]/a[contains(text(), "Logout")]')
+    TEXT_AFTER_LOGOUT = (By.CSS_SELECTOR, 'h1 + p')
+    LOGIN_RIGHT_BLOCK = (By.XPATH, '//div[@class="list-group"]/a[contains(text(), "Login")]')
+    REGISTER_RIGHT_BLOCK = (By.XPATH, '//div[@class="list-group"]/a[contains(text(), "Register")]')
+    MY_ACCOUNT_RIGHT_BLOCK = (By.XPATH, '//div[@class="list-group"]/a[contains(text(), "My Account")]')
 
 
 class FooterPageLocators:
